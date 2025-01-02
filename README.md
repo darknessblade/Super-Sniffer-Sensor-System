@@ -19,7 +19,7 @@ MQ-214,
 MG-811 or Scd41
 Sen55 or  Pms5003 
 
-Some of the MQ sensors will be removed due redundancy due to support of other sensors.
+Some of the MQ sensors will be removed due redundancy or due to support of other sensors, I had grok still list their header/note information, just in case you wish to add them as well.
 
 Note, I am no coder by any means, thus expect little software support from me.
 the current revision is made by AI [GROK/X]
