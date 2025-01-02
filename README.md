@@ -16,8 +16,8 @@ MQ-136,
 MQ-137, 
 MQ-138,
 MQ-214, 
-MG-811 or Scd41
-Sen55 or  Pms5003 
+MG-811 or Scd41,
+Sen55 or  Pms5003,
 
 Some of the MQ sensors will be removed due redundancy or due to support of other sensors, I had grok still list their header/note information, just in case you wish to add them as well.
 
