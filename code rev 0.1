@@ -1,0 +1,222 @@
+esphome:
+  name: multi-air-quality-sensor
+  platform: ESP32
+  board: esp32-s3-devkitc-1
+
+wifi:
+  ssid: "Your_SSID"
+  password: "Your_PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Multi-Air-Quality-Fallback"
+    password: "fallback-password"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+sensor:
+  #=====
+  # MQ-2
+  # Gases it can detect: LPG, i-butane, propane, methane, alcohol, hydrogen, smoke
+  # Similar detection to: MQ-5 (LPG), MQ-6 (LPG)
+  - platform: adc
+    pin: GPIO36  # Choose an appropriate ADC pin for ESP32-S3
+    name: "MQ-2 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3  # Assuming 3.3V reference voltage, adjust if different
+  #=====
+
+  #=====
+  # MQ-3
+  # Gases it can detect: Alcohol, Benzine, CH4, Hexane, LPG, CO
+  - platform: adc
+    pin: GPIO34  # Another ADC pin
+    name: "MQ-3 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-4
+  # Gases it can detect: Natural gas, Methane, CH4
+  - platform: adc
+    pin: GPIO35  # Another ADC pin
+    name: "MQ-4 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-5
+  # Gases it can detect: LPG, Natural gas, Town gas
+  # Similar detection to: MQ-2 (LPG)
+  - platform: adc
+    pin: GPIO39  # Another ADC pin
+    name: "MQ-5 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-6
+  # Gases it can detect: LPG, iso-butane, propane
+  # Similar detection to: MQ-2 (LPG), MQ-5 (LPG)
+  - platform: adc
+    pin: GPIO32  # Another ADC pin
+    name: "MQ-6 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-7
+  # Gases it can detect: Carbon Monoxide
+  - platform: adc
+    pin: GPIO33  # Another ADC pin
+    name: "MQ-7 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-8
+  # Gases it can detect: Hydrogen gas
+  - platform: adc
+    pin: GPIO25  # Another ADC pin
+    name: "MQ-8 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-9
+  # Gases it can detect: Carbon Monoxide, LPG, CH4, Smoke
+  - platform: adc
+    pin: GPIO26  # Another ADC pin
+    name: "MQ-9 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-131
+  # Gases it can detect: Ozone, Cl2, NO2
+  - platform: adc
+    pin: GPIO27  # Another ADC pin
+    name: "MQ-131 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-135
+  # Gases it can detect: Ammonia, Sulfide, Benzene, Smoke, CO2
+  - platform: adc
+    pin: GPIO14  # Another ADC pin
+    name: "MQ-135 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-136
+  # Gases it can detect: Hydrogen Sulfide
+  - platform: adc
+    pin: GPIO12  # Another ADC pin
+    name: "MQ-136 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-137
+  # Gases it can detect: Ammonia
+  - platform: adc
+    pin: GPIO13  # Another ADC pin
+    name: "MQ-137 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-138
+  # Gases it can detect: Formaldehyde, Alcohol, Toluene, Acetone, Benzene
+  - platform: adc
+    pin: GPIO15  # Another ADC pin
+    name: "MQ-138 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MQ-214
+  # Gases it can detect: Methane, Natural Gas
+  - platform: adc
+    pin: GPIO2  # Another ADC pin
+    name: "MQ-214 Gas Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
+
+  #=====
+  # MG-811
+  # Gases it can detect: Carbon Dioxide
+  - platform: adc
+    pin: GPIO4  # Another ADC pin
+    name: "MG-811 CO2 Sensor"
+    update_interval: 10s
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    filters:
+      - multiply: 3.3
+  #=====
